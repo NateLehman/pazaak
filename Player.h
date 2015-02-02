@@ -7,12 +7,12 @@
 #include <list>
 
 
-cass Player : public Agent {
+class Player : public Agent {
 private:
   Deck sideDeck;
   std::list<Card> hand;
 public:
-  virtual PLayer(const Deck& newDeck);
+  Player(const Deck& newDeck);
   virtual ~Player() {}
   virtual void turn(Pazaak& currentGame);
   virtual void drawHand();

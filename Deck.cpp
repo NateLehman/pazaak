@@ -19,17 +19,17 @@ void Deck::addCard(Card newCard) {
 void Deck::shuffle() {
   size_t deckSize = this->numCards();
   if (deckSize >= 2) {
-    Card *deckArr = new Card[deckSize];
+    Card *cardArr = new Card[deckSize];
     for (size_t i = 0; i < deckSize; i++) {
       size_t j = rand() % (i + 1);
       if (j != i) {
-	deckArr[i] = deckArr[j];
+	cardArr[i] = cardArr[j];
       }
-      deckArr[j] = this->drawCard();
+      cardArr[j] = this->drawCard();
     }
     for (size_t i = 0; i < deckSize; i++) {
-      this->addCard(deckArr[i]);
+      this->addCard(cardArr[i]);
     }
-    delete [] deckArr;
+    delete [] cardArr;
   }
 }

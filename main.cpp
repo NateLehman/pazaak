@@ -6,10 +6,10 @@
 
 #include "Deck.h"
 #include "Card.h"
-//#include "Pazaak.h"
-//#include "Agent.h"
-//#include "Player.h"
-//#include "Dealer.h"
+#include "Pazaak.h"
+#include "Agent.h"
+#include "Player.h"
+#include "Dealer.h"
 
 
 int main() {
