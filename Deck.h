@@ -14,5 +14,6 @@ public:
   void addCard(Card newCard);
   size_t numCards() {  return cardStack.size();  }
   bool isEmpty() {  return cardStack.empty();  }
+  void shuffle();
 };
 #endif
