@@ -2,7 +2,7 @@
 #include <time.h>
 #include <cstdlib>
 
-Deck::Deck(){
+Deck::Deck() {
   srand((size_t) time(NULL));
 }
 
