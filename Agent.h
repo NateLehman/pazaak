@@ -6,7 +6,7 @@
 class Agent {
 public:
   virtual ~Agent() {}
-  virtual void turn(Pazaak& currentGame) = 0;
+  virtual void turn(Pazaak* currentGame) = 0;
 };
 
 #endif

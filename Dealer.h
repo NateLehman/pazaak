@@ -8,7 +8,7 @@ private:
   
 public:
   virtual ~Dealer() {}
-  virtual void turn(Pazaak& currentGame);
+  virtual void turn(Pazaak* currentGame);
 };
 
 #endif
