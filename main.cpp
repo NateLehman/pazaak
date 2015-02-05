@@ -12,20 +12,43 @@
 #include "Dealer.h"
 
 
+
+int greenCard(std::list<Card>* tableCards, Card& me) {
+  return me.getValue();
+}
+
+
 int main() {
-  Card myCard1(4, "GREEN");
-  Card myCard2(5, "BLUE");
-  Deck myDeck;
 
-  myDeck.addCard(myCard1);
-  myDeck.addCard(myCard2);
+  Deck p1Deck;
+  Deck p2Deck;
 
-  Card drawnCard = myDeck.drawCard();
+  for (size_t i = 0; i < 10; i++) {
+    Card newCard(i, "GREEN", &greenCard);
+    p1Deck.addCard(newCard);
+    p2Deck.addCard(newCard);
+  }
 
-  
-  std::cout << "myCard2\t\t" << myCard2.getColor() << std::endl;
-  std::cout << "drawnCard\t" << drawnCard.getColor() << std::endl;
-  std::cout << "maybeGreenCard\t" << (myDeck.drawCard()).getColor() << std::endl;
+  Player p1(p1Deck);
+  Player p2(p2Deck);
+  Dealer del;
+
+  Pazaak game(&del, &p1, &p2);
+
+  for (size_t i = 0; i < 10; i++) {
+    for (size_t j = 0; j < 10; j++) {
+      Card newCard(i, "GREEN", &greenCard);
+      game.tableDeck.addCard(newCard);
+    }
+  }
+
+  game.tableDeck.shuffle();
+  p1.drawHand();
+  p1.placeCard(&game, game.tableDeck.drawCard());
+
+  int* sum = game.getSumPtr(p1);
+
+  std::cout << *sum << std::endl;
   
   return 0;
 }

@@ -11,7 +11,7 @@ void Player::turn(Pazaak* currentGame) {
 void Player::placeCard(Pazaak* currentGame, Card heldCard) {
   std::list<Card>* myTablePtr = currentGame->getTablePtr(*this);
   int* mySumPtr = currentGame->getSumPtr(*this);
-  *mySumPtr += heldCard.playCard(myTablePtr);
+  *mySumPtr += heldCard.playCard(myTablePtr, heldCard);
   myTablePtr->push_front(heldCard);
 }
 
