@@ -13,10 +13,10 @@
 
 
 
-int greenCard(std::list<Card>* tableCards, Card& me) {
-  return me.getValue();
+void playGreenCard(std::list<Card>* tableCards, int* sum, Card& me) {
+  *sum += me.value;
+  tableCards->push_front(me);
 }
-
 
 int main() {
 
@@ -24,7 +24,7 @@ int main() {
   Deck p2Deck;
 
   for (size_t i = 0; i < 10; i++) {
-    Card newCard(i, "GREEN", &greenCard);
+    Card newCard(i, "GREEN", &playGreenCard);
     p1Deck.addCard(newCard);
     p2Deck.addCard(newCard);
   }
@@ -37,18 +37,22 @@ int main() {
 
   for (size_t i = 0; i < 10; i++) {
     for (size_t j = 0; j < 10; j++) {
-      Card newCard(i, "GREEN", &greenCard);
+      Card newCard(i, "RED", &playGreenCard);
       game.tableDeck.addCard(newCard);
     }
   }
 
   game.tableDeck.shuffle();
   p1.drawHand();
-  p1.placeCard(&game, game.tableDeck.drawCard());
+
+  game.placeCard(game.tableDeck.drawCard(), p1);
 
   int* sum = game.getSumPtr(p1);
+  std::list<Card>* p1Table = game.getTablePtr(p1);
 
   std::cout << *sum << std::endl;
+  std::cout << p1Table->front().value << std::endl;
+  
   
   return 0;
 }

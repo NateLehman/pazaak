@@ -32,6 +32,8 @@ public:
   Pazaak(Dealer* _dealer, Player* _p1, Player* _p2);
 
   void playGame();
+
+  void placeCard(Card card, const Player& cPlayer);
   
   // should return different sums depending on the player
   int* getSumPtr(const Player& cPlayer);

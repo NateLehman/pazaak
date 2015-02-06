@@ -5,14 +5,7 @@ Player::Player(const Deck& newDeck):sideDeck(newDeck) {
 }
 
 void Player::turn(Pazaak* currentGame) {
-  placeCard(currentGame, currentGame->tableDeck.drawCard());
-}
-
-void Player::placeCard(Pazaak* currentGame, Card heldCard) {
-  std::list<Card>* myTablePtr = currentGame->getTablePtr(*this);
-  int* mySumPtr = currentGame->getSumPtr(*this);
-  *mySumPtr += heldCard.playCard(myTablePtr, heldCard);
-  myTablePtr->push_front(heldCard);
+  currentGame->placeCard(currentGame->tableDeck.drawCard(), *this);
 }
 
 void Player::drawHand() {

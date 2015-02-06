@@ -22,7 +22,6 @@ public:
   virtual ~Player() {}
   virtual void turn(Pazaak* currentGame);
   void drawHand();
-  void placeCard(Pazaak* currentGame, Card heldCard);
   
 };
 #endif

@@ -46,3 +46,7 @@ std::list<Card>* Pazaak::getTablePtr(const Player& cPlayer) {
     return nullptr;
   }
 }
+
+void Pazaak::placeCard(Card card, const Player& cPlayer) {
+  card.playCard(getTablePtr(cPlayer), getSumPtr(cPlayer), card);  // add checks to see if they are nullptr
+}
