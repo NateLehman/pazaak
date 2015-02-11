@@ -9,8 +9,8 @@ void Player::turn(Pazaak& currentGame) {
     currentGame.placeCard(currentGame.tableDeck.drawCard(), *this);
     // choose a card to place
     // choose to stand
-    currentGame.endTurn(*this);
   }
+  currentGame.endTurn(*this);
 }
 
 void Player::drawHand() {
