@@ -6,15 +6,17 @@ class Player;
 #include "Deck.h"
 #include "Card.h"
 #include "Pazaak.h"
-#include <list>
-
+//#include <list>
+#include <vector>
+#include <string>
+#include <iostream>
 
 class Player : public Agent {
   
 private:
   
   Deck sideDeck;
-  std::list<Card> hand;  // this might be better as a simple array
+  std::vector<Card> hand;  // this might be better as a simple array
   
 public:
   
@@ -22,6 +24,7 @@ public:
   virtual ~Player() {}
   virtual void turn(Pazaak& currentGame);
   void drawHand();
+  std::string handText();
   
 };
 #endif

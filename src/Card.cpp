@@ -9,3 +9,10 @@ Card::Card(const int& _value, const std::string& _color, void (*f)(std::vector<C
 									   playCard(f) {
   
 }
+
+std::string Card::cardText() {
+  char numstr[21];
+  sprintf(numstr, "%d", value);
+  return color + " " + numstr;
+}
+

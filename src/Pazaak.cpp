@@ -73,7 +73,7 @@ void Pazaak::placeCard(Card card, const Player& cPlayer) {
   std::cout << "Player 2 sum: " << p2Sum << std::endl;
 }
 
-// this works i think but it's really really shitty
+// this works, i think, but it's really, really shitty
 void Pazaak::endTurn(const Player& cPlayer) {
   if (pNum(cPlayer) != -1) {
     if (*getSumPtr(cPlayer) == 20) {
